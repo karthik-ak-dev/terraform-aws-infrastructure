@@ -1,0 +1,33 @@
+# ============================================================================
+# DEV ENVIRONMENT CONFIGURATION
+# ============================================================================
+# Copy this file to terraform.tfvars and update values
+
+region       = "us-east-1"
+project_name = "myproject"
+vpc_cidr     = "10.0.0.0/16"
+
+# Database password (use environment variable or secrets manager in practice)
+# export TF_VAR_db_password="your-secure-password"
+db_password = ""
+
+# GitHub repositories for CI/CD OIDC
+github_repositories = [
+  # "your-org/your-app-repo"
+]
+
+# Application IRSA roles
+application_roles = {
+  # example-service = {
+  #   namespace       = "example-service-dev"
+  #   service_account = "example-service-dev"
+  #   policy_arns = [
+  #     "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"
+  #   ]
+  # }
+}
+
+tags = {
+  Environment = "dev"
+  Team        = "platform"
+}
