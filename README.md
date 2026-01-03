@@ -2,15 +2,17 @@
 
 Production AWS infrastructure deployment using modular Terraform. This repository demonstrates how to compose reusable modules into complete, environment-specific configurations.
 
+> **Prerequisites:** This repository depends on the following module repositories. Review them first to understand the available modules and their configurations.
+
+| Repository | GitHub URL | Description |
+|------------|------------|-------------|
+| **terraform-aws-eks-platform** | https://github.com/karthik-ak-dev/terraform-aws-eks-platform | VPC, EKS, ALB Controller, ECR, CI/CD |
+| **terraform-aws-data-services** | https://github.com/karthik-ak-dev/terraform-aws-data-services | Aurora, DynamoDB, Redis, OpenSearch, S3 |
+| **terraform-aws-organization** | https://github.com/karthik-ak-dev/terraform-aws-organization | AWS Organizations, IAM Identity Center |
+
 ## Overview
 
-This is the **main infrastructure repository** that orchestrates deployments by consuming modules from:
-
-| Module Repository | Purpose |
-|------------------|---------|
-| [terraform-aws-organization](https://github.com/karthik-ak-dev/terraform-aws-organization) | AWS Organizations, IAM Identity Center |
-| [terraform-aws-eks-platform](https://github.com/karthik-ak-dev/terraform-aws-eks-platform) | VPC, EKS, ALB Controller, ECR, CI/CD |
-| [terraform-aws-data-services](https://github.com/karthik-ak-dev/terraform-aws-data-services) | Aurora, DynamoDB, Redis, OpenSearch, S3 |
+This is the **main infrastructure repository** that orchestrates deployments by consuming modules from the repositories listed above. Each environment configuration pulls versioned modules directly from Git.
 
 ## Architecture
 
@@ -170,12 +172,6 @@ terraform {
 | terraform | >= 1.0 |
 | aws | ~> 5.0 |
 | helm | ~> 2.0 |
-
-## Related Repositories
-
-- [terraform-aws-organization](https://github.com/karthik-ak-dev/terraform-aws-organization) - AWS Organizations & IAM Identity Center
-- [terraform-aws-eks-platform](https://github.com/karthik-ak-dev/terraform-aws-eks-platform) - EKS, VPC, ALB, ECR, CI/CD
-- [terraform-aws-data-services](https://github.com/karthik-ak-dev/terraform-aws-data-services) - Databases, caching, storage
 
 ## License
 
